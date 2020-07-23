@@ -5,8 +5,8 @@ platform :ios, '13.0'
 use_frameworks!
 
 def shared_pods
-  pod 'RxSwift'
-  pod 'RxCocoa'
+  pod 'Alamofire'
+  pod 'lottie-ios'
 end
 
 target 'Eventos' do
@@ -14,9 +14,5 @@ target 'Eventos' do
 end
 
 target 'EventosTests' do
-  shared_pods
-end
-
-target 'EventosUITests' do
   shared_pods
 end
