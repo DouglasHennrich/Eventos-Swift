@@ -9,7 +9,8 @@
 import Foundation
 
 struct EventViewModel: Codable {
-    let event: Event
+    
+    private let event: Event
     
     var id: String {
         return event.id
@@ -39,4 +40,10 @@ struct EventViewModel: Codable {
         dateFormatter.dateFormat = "dd/MMM"
         return dateFormatter.string(from: date)
     }
+    
+    // MARK: Init
+    init(event: Event) {
+        self.event = event
+    }
+    
 }

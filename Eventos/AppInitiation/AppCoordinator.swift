@@ -15,22 +15,23 @@ class AppCoordinator: Coordinator {
     
     // MARK: Init
     init() {
-        self.navigationController = UINavigationController()
-        self.navigationController.navigationBar.tintColor = .primary
-        self.navigationController.navigationBar.titleTextAttributes = [
+        navigationController = UINavigationController()
+        navigationController.navigationBar.tintColor = .primary
+        navigationController.navigationBar.titleTextAttributes = [
             NSAttributedString.Key.foregroundColor: UIColor.primary
         ]
-        self.navigationController.navigationBar.largeTitleTextAttributes = [
+        navigationController.navigationBar.largeTitleTextAttributes = [
             NSAttributedString.Key.foregroundColor: UIColor.primary
         ]
     }
     
     // MARK: Actions
     func start() {
-        let viewModel = HomeViewModel(navigation: self)
-        let vc = HomeViewController.instantiateFromStoryboard(named: "Home")
+        let viewModel = LoginViewModel(navigation: self)
+        let vc = LoginViewController.instantiateFromStoryboard(named: "Login")
         vc.viewModel = viewModel
         
+        navigationController.navigationBar.isHidden = true
         navigationController.pushViewController(vc, animated: false)
     }
     

@@ -32,7 +32,7 @@ class HomeViewController: UIViewController, Storyboarded {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationItem.title = viewModel?.navTitle
+        title = viewModel?.navTitle
         navigationController?.navigationBar.prefersLargeTitles = true
         
         setUpBinders()
@@ -76,6 +76,7 @@ extension HomeViewController: UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: true)
         
         // open details
+        viewModel?.openEventDetails(section: indexPath.section, row: indexPath.row)
     }
     
 }
@@ -95,7 +96,7 @@ extension HomeViewController: UITableViewDataSource {
                 return nil
         }
         let backgroundView = UIView(frame: header.bounds)
-        backgroundView.backgroundColor = UIColor(white: 0.5, alpha: 0.8)
+        backgroundView.backgroundColor = UIColor(white: 1, alpha: 0.8)
         header.backgroundView = backgroundView
         
         header.config(title: currentSection.date)
