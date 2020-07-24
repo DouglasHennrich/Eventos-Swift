@@ -87,7 +87,7 @@ extension ServiceClient: ServiceClientDelegate {
                         case 500:
                             return onCompletion(.failure(ServiceError.internalServerError))
                         default:
-                            return onCompletion(.failure(error))
+                            return onCompletion(.failure(ServiceError.unknow(error: error)))
                         }
                     }
             }

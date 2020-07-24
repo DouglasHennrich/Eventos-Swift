@@ -36,7 +36,7 @@ enum ServiceError: Error {
             return "Sem serviço"
             
         case .unknow(let error):            
-            return (error as NSError).debugDescription
+            return error.localizedDescription
         }
     }
 }

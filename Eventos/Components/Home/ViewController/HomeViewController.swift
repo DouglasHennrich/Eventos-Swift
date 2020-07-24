@@ -39,6 +39,14 @@ class HomeViewController: UIViewController, Storyboarded {
         viewModel?.getEvents()
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        if self.isMovingFromParent {
+            User.clear()
+        }
+    }
+    
     // MARK: Actions
     private func setUpBinders() {
         

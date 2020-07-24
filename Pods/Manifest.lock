@@ -1,20 +1,30 @@
 PODS:
   - Alamofire (5.2.1)
+  - Kingfisher (5.14.1):
+    - Kingfisher/Core (= 5.14.1)
+  - Kingfisher/Core (5.14.1)
   - lottie-ios (3.1.8)
+  - ParallaxHeader (3.0.0)
 
 DEPENDENCIES:
   - Alamofire
+  - Kingfisher
   - lottie-ios
+  - ParallaxHeader
 
 SPEC REPOS:
   trunk:
     - Alamofire
+    - Kingfisher
     - lottie-ios
+    - ParallaxHeader
 
 SPEC CHECKSUMS:
   Alamofire: e911732990610fe89af59ac0077f923d72dc3dfd
+  Kingfisher: 8050bc6f7f68cbf3908bd04df7ccbac188f6d6d6
   lottie-ios: 48fac6be217c76937e36e340e2d09cf7b10b7f5f
+  ParallaxHeader: a343f55eb38f52a89c5820a77e14cf975b84e6aa
 
-PODFILE CHECKSUM: dedddb63aa916a8154c496cc05093c4afa7854c0
+PODFILE CHECKSUM: 6d8efc095df8256073389f7fa8c32c5db3e2c7e3
 
 COCOAPODS: 1.9.3
