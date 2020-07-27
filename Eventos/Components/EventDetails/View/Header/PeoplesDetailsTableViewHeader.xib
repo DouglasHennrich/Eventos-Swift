@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="PeoplesDetailsTableViewHeader" customModule="Eventos" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="252" horizontalCompressionResistancePriority="1000" text="Algumas pessoas que fizeram check-in no evento" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0EM-ZL-a2T">
+                    <rect key="frame" x="40" y="10" width="334" height="41"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                    <color key="textColor" red="0.53333333329999999" green="0.7725490196" blue="0.27058823529999998" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="0EM-ZL-a2T" secondAttribute="trailing" constant="40" id="7pb-kd-c8O"/>
+                <constraint firstItem="0EM-ZL-a2T" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="40" id="GKN-pN-eTW"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="0EM-ZL-a2T" secondAttribute="bottom" constant="5" id="byz-QT-MAe"/>
+                <constraint firstItem="0EM-ZL-a2T" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="sT1-of-ANf"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="128.98550724637681" y="-160.71428571428569"/>
+        </view>
+    </objects>
+</document>

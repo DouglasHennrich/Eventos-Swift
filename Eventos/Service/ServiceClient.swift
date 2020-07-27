@@ -18,6 +18,15 @@ protocol ServiceClientDelegate: AnyObject {
 
 class ServiceClient {
     
+    // MARK: Properties
+    lazy var logger = Logger.forClass(Self.self)
+    
+    // MARK: Init
+    init() {
+        AF.sessionConfiguration.timeoutIntervalForRequest = 15
+    }
+    
+    // MARK: Actions
     func buildUrl(path: String,
                   method: HTTPMethod,
                   parameters: Parameters?) throws -> URLRequestConvertible {
@@ -55,7 +64,7 @@ class ServiceClient {
 
 extension ServiceClient: ServiceClientDelegate {
     
-    // MARK: - The request function to get results in an Observable
+    //
     func request<T: Codable> (withUrl: String,
                               withMethod: HTTPMethod = .get,
                               andParameters: Parameters? = nil,
@@ -69,25 +78,33 @@ extension ServiceClient: ServiceClientDelegate {
                     return onCompletion(.failure(ServiceError.cantCreateUrl))
             }
             
-            // Trigger the HttpRequest using AlamoFire (AF)
+            //
             AF.request(urlRequestConvirtable)
-                .responseDecodable(of: T.self) { response in
+                .responseJSON { [weak self] response in
                     switch response.result {
-                    case .success(let value):
-                        return onCompletion(.success(value))
+                    case .success(_):
+                        guard let data = response.data else {
+                            return onCompletion(.failure(ServiceError.badRequest))
+                        }
+                        
+                        do {
+                            let result = try JSONDecoder().decode(T.self, from: data)
+                            return onCompletion(.success(result))
+                        } catch let errorCatch as NSError {
+                            self?.logger.error(errorCatch.debugDescription)
+                            return onCompletion(.failure(ServiceError.badRequest))
+                        }
                         
                     case .failure(let error):
                         switch response.response?.statusCode {
                         case 400:
                             return onCompletion(.failure(ServiceError.badRequest))
-                        case 403:
-                            return onCompletion(.failure(ServiceError.forbidden))
                         case 404:
                             return onCompletion(.failure(ServiceError.notFound))
                         case 500:
                             return onCompletion(.failure(ServiceError.internalServerError))
                         default:
-                            return onCompletion(.failure(error))
+                            return onCompletion(.failure(ServiceError.unknow(error: error)))
                         }
                     }
             }

@@ -15,7 +15,11 @@ protocol HomeCoordinatorDelegate: AnyObject {
 extension AppCoordinator: HomeCoordinatorDelegate {
     
     func openEventDetails(withId eventId: String) {
+        let viewModel = EventDetailsViewModel(eventId: eventId)
+        let vc = EventDetailsViewController.instantiateFromStoryboard(named: "EventDetails")
+        vc.viewModel = viewModel
         
+        navigationController.pushViewController(vc, animated: true)
     }
     
 }
