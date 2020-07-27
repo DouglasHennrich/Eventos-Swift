@@ -74,7 +74,7 @@ extension HomeViewModel: HomeViewModelDelegate {
             self.events.value = []
         }
         
-        Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false) { [weak self] timer in
+        Timer.scheduledTimer(withTimeInterval: 3, repeats: false) { [weak self] timer in
             timer.invalidate()
             self?.service?.getEvents { [weak self] response in
                 self?.loading.value = (false, nil)
