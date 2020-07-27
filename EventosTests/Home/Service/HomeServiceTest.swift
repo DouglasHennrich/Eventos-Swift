@@ -15,7 +15,7 @@ class HomeServiceTest: HomeServiceDelegate {
         var events: [Event] = []
         
         for index in 1...3 {
-            events.append(Event.mockDataWith(id: "\(index)"))
+            events.append(Event.asMockDataWith(id: "\(index)"))
         }
         
         onCompletion(.success(events))

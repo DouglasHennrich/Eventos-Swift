@@ -13,6 +13,9 @@
 		C10C064F24CF0D9600CFDEA0 /* HomeViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C10C064E24CF0D9600CFDEA0 /* HomeViewModelTest.swift */; };
 		C10C065224CF103C00CFDEA0 /* HomeServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C10C065124CF103C00CFDEA0 /* HomeServiceTest.swift */; };
 		C10C065524CF14E100CFDEA0 /* EventTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C10C065424CF14E100CFDEA0 /* EventTest.swift */; };
+		C10C065824CF504900CFDEA0 /* EventDetailsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C10C065724CF504900CFDEA0 /* EventDetailsTest.swift */; };
+		C10C065C24CF533A00CFDEA0 /* EventDetailsViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C10C065B24CF533A00CFDEA0 /* EventDetailsViewModelTest.swift */; };
+		C10C065E24CF54D400CFDEA0 /* EventDetailsServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C10C065D24CF54D400CFDEA0 /* EventDetailsServiceTest.swift */; };
 		C126025F24C7BFB800C17243 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C126025E24C7BFB800C17243 /* UIViewExtension.swift */; };
 		C126026324C7C10F00C17243 /* UIDeviceExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C126026224C7C10F00C17243 /* UIDeviceExtension.swift */; };
 		C126026524C7C13C00C17243 /* NSLayoutConstraintExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C126026424C7C13C00C17243 /* NSLayoutConstraintExtension.swift */; };
@@ -94,6 +97,9 @@
 		C10C064E24CF0D9600CFDEA0 /* HomeViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModelTest.swift; sourceTree = "<group>"; };
 		C10C065124CF103C00CFDEA0 /* HomeServiceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeServiceTest.swift; sourceTree = "<group>"; };
 		C10C065424CF14E100CFDEA0 /* EventTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTest.swift; sourceTree = "<group>"; };
+		C10C065724CF504900CFDEA0 /* EventDetailsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailsTest.swift; sourceTree = "<group>"; };
+		C10C065B24CF533A00CFDEA0 /* EventDetailsViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailsViewModelTest.swift; sourceTree = "<group>"; };
+		C10C065D24CF54D400CFDEA0 /* EventDetailsServiceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailsServiceTest.swift; sourceTree = "<group>"; };
 		C126025E24C7BFB800C17243 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		C126026224C7C10F00C17243 /* UIDeviceExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIDeviceExtension.swift; sourceTree = "<group>"; };
 		C126026424C7C13C00C17243 /* NSLayoutConstraintExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSLayoutConstraintExtension.swift; sourceTree = "<group>"; };
@@ -223,6 +229,32 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		C10C065624CF501D00CFDEA0 /* EventDetails */ = {
+			isa = PBXGroup;
+			children = (
+				C10C065A24CF52F700CFDEA0 /* Service */,
+				C10C065924CF52F200CFDEA0 /* ViewModel */,
+				C10C065724CF504900CFDEA0 /* EventDetailsTest.swift */,
+			);
+			path = EventDetails;
+			sourceTree = "<group>";
+		};
+		C10C065924CF52F200CFDEA0 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				C10C065B24CF533A00CFDEA0 /* EventDetailsViewModelTest.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		C10C065A24CF52F700CFDEA0 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				C10C065D24CF54D400CFDEA0 /* EventDetailsServiceTest.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
 		C126025A24C7BEBA00C17243 /* AppInitiation */ = {
 			isa = PBXGroup;
 			children = (
@@ -335,6 +367,7 @@
 			children = (
 				C10C065324CF14D200CFDEA0 /* Model */,
 				C10C064A24CF0AFF00CFDEA0 /* Home */,
+				C10C065624CF501D00CFDEA0 /* EventDetails */,
 				C198692324C7BC6E003BB2B7 /* Info.plist */,
 			);
 			path = EventosTests;
@@ -903,9 +936,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C10C065E24CF54D400CFDEA0 /* EventDetailsServiceTest.swift in Sources */,
+				C10C065C24CF533A00CFDEA0 /* EventDetailsViewModelTest.swift in Sources */,
 				C10C064F24CF0D9600CFDEA0 /* HomeViewModelTest.swift in Sources */,
 				C10C064C24CF0B3700CFDEA0 /* HomeTest.swift in Sources */,
 				C10C065224CF103C00CFDEA0 /* HomeServiceTest.swift in Sources */,
+				C10C065824CF504900CFDEA0 /* EventDetailsTest.swift in Sources */,
 				C10C065524CF14E100CFDEA0 /* EventTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
