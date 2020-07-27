@@ -78,7 +78,6 @@ class HomeViewController: UIViewController, Storyboarded {
         viewModel?.events.bind { [weak self] _ in
             self?.tableView.reloadData()
             self?.refreshControl.endRefreshing()
-            //self?.view.layoutIfNeeded()
         }
         
     }
