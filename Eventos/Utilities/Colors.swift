@@ -11,6 +11,7 @@ import UIKit
 extension UIColor {
     
     static let primary: UIColor = UIColor(red: 136/255.0, green: 197/255.0, blue: 69/255.0, alpha: 1.0)
+    static let secondary: UIColor = UIColor(red: 65/255.0, green: 109/255.0, blue: 62/255.0, alpha: 1.0)
 
     // Used in Letter Image Generate
     struct ImageLetter {

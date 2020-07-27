@@ -47,4 +47,3 @@ class LetterImageGenerate: NSObject {
         return UIImage()
     }
 }
-
