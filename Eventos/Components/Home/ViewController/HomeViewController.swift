@@ -13,6 +13,7 @@ class HomeViewController: UIViewController, Storyboarded {
 
     // MARK: Properties
     var viewModel: HomeViewModelDelegate?
+    private var refreshControl = UIRefreshControl()
     
     // MARK: IBOutlets
     @IBOutlet weak var tableView: UITableView! {
@@ -25,6 +26,8 @@ class HomeViewController: UIViewController, Storyboarded {
             
             tableView.delegate = self
             tableView.dataSource = self
+            
+            tableView.refreshControl = refreshControl
         }
     }
     
@@ -34,9 +37,22 @@ class HomeViewController: UIViewController, Storyboarded {
         
         title = viewModel?.navTitle
         navigationController?.navigationBar.prefersLargeTitles = true
+        changeStatusBarViewColor(to: .primary)
+        
+        refreshControl.tintColor = .primary
+        refreshControl.attributedTitle = NSAttributedString(string: "Recarregar eventos")
+        refreshControl.addTarget(self, action: #selector(onRefresh), for: .valueChanged)
         
         setUpBinders()
-        viewModel?.getEvents()
+        viewModel?.getEvents(reload: false)
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        if self.isMovingFromParent {
+            User.clear()
+        }
     }
     
     // MARK: Actions
@@ -53,20 +69,23 @@ class HomeViewController: UIViewController, Storyboarded {
                                           message: message,
                                           preferredStyle: .alert)
             
-            alert.addAction(UIAlertAction(title: "Tentar novamente",
+            alert.addAction(UIAlertAction(title: "Ok",
                                           style: .default,
-                                          handler: { _ in
-                                            self?.viewModel?.getEvents()
-            }))
+                                          handler: nil))
             self?.present(alert, animated: true)
         }
         
         viewModel?.events.bind { [weak self] _ in
             self?.tableView.reloadData()
+            self?.refreshControl.endRefreshing()
+            //self?.view.layoutIfNeeded()
         }
         
     }
 
+    @objc private func onRefresh() {
+        viewModel?.getEvents(reload: true)
+    }
 }
 
 // MARK: TableViewDelegate
@@ -75,7 +94,7 @@ extension HomeViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
-        // open details
+        //
         viewModel?.openEventDetails(section: indexPath.section, row: indexPath.row)
     }
     

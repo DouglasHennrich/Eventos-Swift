@@ -10,7 +10,6 @@ import Foundation
 
 enum ServiceError: Error {
     case badRequest             // Status code 400
-    case forbidden              // Status code 403
     case notFound               // Status code 404
     case internalServerError    // Status code 500
     
@@ -22,10 +21,10 @@ enum ServiceError: Error {
         switch self {
         case .badRequest:
             return "API inválida"
-        case .forbidden:
-            return "API não autorizada"
+            
         case .notFound:
             return "API não encontrada"
+            
         case .internalServerError:
             return "Erro na API"
             
@@ -35,8 +34,8 @@ enum ServiceError: Error {
         case .noService:
             return "Sem serviço"
             
-        case .unknow(let error):            
-            return (error as NSError).debugDescription
+        case .unknow:          
+            return "Erro inesperado"
         }
     }
 }

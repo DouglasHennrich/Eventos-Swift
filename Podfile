@@ -7,6 +7,8 @@ use_frameworks!
 def shared_pods
   pod 'Alamofire'
   pod 'lottie-ios'
+  pod 'ParallaxHeader'
+  pod 'Kingfisher'
 end
 
 target 'Eventos' do

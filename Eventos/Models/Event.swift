@@ -9,7 +9,7 @@
 import Foundation
 
 struct Event: Codable {
-    let people: [EventPerson]
+    let peoples: [EventPerson]
     let date: Int
     let eventDescription: String
     let image: String
@@ -21,7 +21,8 @@ struct Event: Codable {
     let cupons: [EventCupon]
 
     enum CodingKeys: String, CodingKey {
-        case people, date
+        case peoples = "people"
+        case date
         case eventDescription = "description"
         case image, longitude, latitude, price, title, id, cupons
     }
@@ -31,13 +32,13 @@ struct Event: Codable {
 struct EventCupon: Codable {
     let id: String
     let eventId: String
-    let discount: Int
+    let discount: Double
 }
 
 // MARK: - Person
 struct EventPerson: Codable {
-    let id: String
-    let eventId: String
+    let id: String?
+    let eventId: String?
     let name: String
     let picture: String
 }

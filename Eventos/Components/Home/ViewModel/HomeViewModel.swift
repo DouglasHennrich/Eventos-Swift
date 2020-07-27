@@ -14,7 +14,7 @@ protocol HomeViewModelDelegate: AnyObject {
     var loading: Binder<(actived: Bool, message: String?)> { get }
     var error: Binder<String> { get }
     
-    func getEvents()
+    func getEvents(reload: Bool)
     func eventsCount(forSection at: Int) -> Int
     func sectionsCount() -> Int
     func getEventAt(section: Int, row: Int) -> EventViewModel?
@@ -67,10 +67,14 @@ class HomeViewModel {
 
 extension HomeViewModel: HomeViewModelDelegate {
     
-    func getEvents() {
+    func getEvents(reload: Bool = false) {
         loading.value = (true, "Carregando eventos")
         
-        Timer.scheduledTimer(withTimeInterval: 3, repeats: false) { [weak self] timer in
+        if reload {
+            self.events.value = []
+        }
+        
+        Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false) { [weak self] timer in
             timer.invalidate()
             self?.service?.getEvents { [weak self] response in
                 self?.loading.value = (false, nil)
@@ -91,7 +95,7 @@ extension HomeViewModel: HomeViewModelDelegate {
                         return
                     }
                     
-                    self?.error.value = serviceError.message
+                    self?.error.value = serviceError.message + "\nPuxe para atualizar"
                 }
             }
         }

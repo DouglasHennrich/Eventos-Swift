@@ -16,7 +16,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="130"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="U1x-R5-waC">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="U1x-R5-waC">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="130"/>
                     </imageView>
                     <visualEffectView opaque="NO" alpha="0.90000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jeL-WM-NmV">
@@ -41,6 +41,7 @@
                     </label>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="U1x-R5-waC" firstAttribute="height" secondItem="H2p-sc-9uM" secondAttribute="height" id="1Gf-z1-7S3"/>
                     <constraint firstItem="jeL-WM-NmV" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="2Oh-zE-NDq"/>
                     <constraint firstItem="i4Q-yB-0Ir" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="5V4-Ra-y5X"/>
                     <constraint firstItem="AWr-SX-SDI" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="8FP-Rh-Ttj"/>
