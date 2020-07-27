@@ -25,16 +25,15 @@ class HomeTest: XCTestCase {
                 XCTFail("Não foi possível recuperar 'sut'")
                 return
         }
-        let expetation = XCTestExpectation(description: "getEvents")
-        let viewModel = HomeViewModelTest(expetation: expetation)
+        let expectation = XCTestExpectation(description: "getEvents")
+        let viewModel = HomeViewModelTest(expectation: expectation)
         
         sut.viewModel = viewModel
         
         sut.viewDidLoad()
-        sut.viewModel?.getEvents(reload: false)
         
         let waiter = XCTWaiter()
-        waiter.wait(for: [expetation], timeout: 5)
+        waiter.wait(for: [expectation], timeout: 5)
         
         XCTAssertEqual(sut.viewModel?.events.value.count, 3, "Deve conter 3 eventos")
     }
@@ -46,17 +45,16 @@ class HomeTest: XCTestCase {
                 XCTFail("Não foi possível recuperar 'sut'")
                 return
         }
-        let expetation = XCTestExpectation(description: "getEvents")
-        let viewModel = HomeViewModelTest(expetation: expetation)
+        let expectation = XCTestExpectation(description: "getEvents")
+        let viewModel = HomeViewModelTest(expectation: expectation)
         
         sut.viewModel = viewModel
         viewModel.apiShouldFail = true
         
         sut.viewDidLoad()
-        sut.viewModel?.getEvents(reload: false)
         
         let waiter = XCTWaiter()
-        waiter.wait(for: [expetation], timeout: 5)
+        waiter.wait(for: [expectation], timeout: 5)
         
         XCTAssertEqual(sut.viewModel?.error.value,
                        ServiceError.badRequest.message,
@@ -70,16 +68,14 @@ class HomeTest: XCTestCase {
                 XCTFail("Não foi possível recuperar 'sut'")
                 return
         }
-        let expetation = XCTestExpectation(description: "getEvents")
-        let viewModel = HomeViewModelTest(expetation: expetation)
+        let expectation = XCTestExpectation(description: "getEvents")
+        let viewModel = HomeViewModelTest(expectation: expectation)
         
         sut.viewModel = viewModel
-        
         sut.viewDidLoad()
-        sut.viewModel?.getEvents(reload: false)
         
         let waiter = XCTWaiter()
-        waiter.wait(for: [expetation], timeout: 5)
+        waiter.wait(for: [expectation], timeout: 5)
         
         let cell = sut.tableView.cellForRow(at: IndexPath(row: 1, section: 0)) as? EventTableViewCell
         
@@ -93,16 +89,15 @@ class HomeTest: XCTestCase {
                 XCTFail("Não foi possível recuperar 'sut'")
                 return
         }
-        let expetation = XCTestExpectation(description: "getEvents")
-        let viewModel = HomeViewModelTest(expetation: expetation)
+        let expectation = XCTestExpectation(description: "getEvents")
+        let viewModel = HomeViewModelTest(expectation: expectation)
         
         sut.viewModel = viewModel
         
         sut.viewDidLoad()
-        sut.viewModel?.getEvents(reload: false)
         
         let waiter = XCTWaiter()
-        waiter.wait(for: [expetation], timeout: 5)
+        waiter.wait(for: [expectation], timeout: 5)
         
         let event = sut.viewModel?.getEventAt(section: 0, row: 0)
         

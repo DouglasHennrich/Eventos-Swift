@@ -23,9 +23,9 @@ class HomeViewModelTest: HomeViewModelDelegate {
     var exp: XCTestExpectation
     
     // MARK: Init
-    init(service: HomeServiceDelegate = HomeServiceTest(), expetation: XCTestExpectation) {
+    init(service: HomeServiceDelegate = HomeServiceTest(), expectation: XCTestExpectation) {
         self.service = service
-        self.exp = expetation
+        self.exp = expectation
     }
     
     // MARK: Actions

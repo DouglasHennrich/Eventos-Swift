@@ -11,7 +11,7 @@ import Foundation
 
 extension Event {
     
-    static func mockDataWith(id: String) -> Event {
+    static func asMockDataWith(id: String) -> Event {
         let person = EventPerson(id: "1", eventId: "1", name: "Douglas Hennrich", picture: "")
         let cupon = EventCupon(id: id, eventId: id, discount: 10.0)
         
