@@ -43,7 +43,7 @@ extension EventDetailsViewModel: EventDetailsViewModelDelegate {
     func getEventDetails() {
         loading.value = (true, "Buscando detalhes")
         
-        Timer.scheduledTimer(withTimeInterval: 2, repeats: false) { [weak self] timer in
+        Timer.scheduledTimer(withTimeInterval: 3, repeats: false) { [weak self] timer in
             timer.invalidate()
             guard let self = self else { return }
             
@@ -69,7 +69,7 @@ extension EventDetailsViewModel: EventDetailsViewModelDelegate {
     func checkIn(onCompletion: @escaping ((_ success: Bool) -> Void)) {
         loading.value = (true, "Realizando Check-In")
         
-        Timer.scheduledTimer(withTimeInterval: 2, repeats: false) { [weak self] timer in
+        Timer.scheduledTimer(withTimeInterval: 3, repeats: false) { [weak self] timer in
             timer.invalidate()
             guard let self = self else { return }
             
